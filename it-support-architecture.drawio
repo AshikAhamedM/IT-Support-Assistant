@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="IT Support GenAI Architecture">
+    <mxGraphModel dx="1226" dy="768" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- User -->
+        <mxCell id="user" value="End Users&#10;(Employees / Helpdesk UI)"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- API -->
+        <mxCell id="api" value="API Layer&#10;FastAPI"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+                vertex="1" parent="1">
+          <mxGeometry x="300" y="260" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Retrieval -->
+        <mxCell id="rag" value="Retrieval Layer (RAG)"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;"
+                vertex="1" parent="1">
+          <mxGeometry x="580" y="160" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Vector DB -->
+        <mxCell id="vector" value="Vector DB (FAISS)&#10;IT Knowledge Base"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;"
+                vertex="1" parent="1">
+          <mxGeometry x="580" y="280" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Prompt -->
+        <mxCell id="prompt" value="Prompt Assembly&#10;Context + Safety Rules"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;"
+                vertex="1" parent="1">
+          <mxGeometry x="900" y="220" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- LLM -->
+        <mxCell id="llm" value="LLM Inference&#10;Fine-Tuned LLaMA-3 (LoRA)&#10;vLLM Server"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="1220" y="220" width="300" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Evaluation -->
+        <mxCell id="eval" value="Evaluation & Guardrails&#10;RAGAS / Logging / Fallback"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+                vertex="1" parent="1">
+          <mxGeometry x="1580" y="220" width="300" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="e1" style="endArrow=block;html=1;" edge="1" parent="1"
+                source="user" target="api">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" style="endArrow=block;html=1;" edge="1" parent="1"
+                source="api" target="rag">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" style="endArrow=block;html=1;" edge="1" parent="1"
+                source="rag" target="vector">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" style="endArrow=block;html=1;" edge="1" parent="1"
+                source="vector" target="prompt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" style="endArrow=block;html=1;" edge="1" parent="1"
+                source="prompt" target="llm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6" style="endArrow=block;html=1;" edge="1" parent="1"
+                source="llm" target="eval">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

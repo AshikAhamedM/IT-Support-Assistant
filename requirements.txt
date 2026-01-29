@@ -1,0 +1,11 @@
+torch
+transformers
+datasets
+peft
+bitsandbytes
+sentence-transformers
+faiss-cpu
+ragas
+fastapi
+uvicorn
+requests
